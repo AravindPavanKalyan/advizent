@@ -23,21 +23,30 @@
         class="hover:text-blue-600 transition"
       >Home</a>
 
-      <div class="relative group" (mouseleave)="isServicesDropdownOpen = false">
-        <a
-          routerLink="/services"
-          routerLinkActive="text-blue-600"
-          class="flex items-center hover:text-blue-600 transition focus:outline-none"
-          (click)="$event.preventDefault(); isServicesDropdownOpen = !isServicesDropdownOpen"
-          (keydown.enter)="isServicesDropdownOpen = !isServicesDropdownOpen"
-          aria-haspopup="true"
-          [attr.aria-expanded]="isServicesDropdownOpen"
-        >
-          Services
-          <svg class="ml-1 w-4 h-4 transition-transform duration-200" [ngClass]="{'rotate-180': isServicesDropdownOpen}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
+  <div class="relative group">
+        <span class="flex items-center">
+          <a
+            routerLink="/services"
+            routerLinkActive="text-blue-600"
+            class="hover:text-blue-600 transition focus:outline-none"
+            aria-haspopup="true"
+            [attr.aria-expanded]="isServicesDropdownOpen"
+            tabindex="0"
+          >
+            Services
+          </a>
+          <button
+            type="button"
+            class="ml-1 focus:outline-none"
+            (click)="isServicesDropdownOpen = !isServicesDropdownOpen"
+            (keydown.enter)="isServicesDropdownOpen = !isServicesDropdownOpen"
+            aria-label="Toggle services dropdown"
+          >
+            <svg class="w-4 h-4 transition-transform duration-200" [ngClass]="{'rotate-180': isServicesDropdownOpen}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </span>
         <div
           *ngIf="isServicesDropdownOpen"
           class="absolute left-0 mt-2 w-40 bg-white border rounded shadow-lg z-50"

@@ -1,0 +1,66 @@
+// Hamburger-to-X animation
+.hamburger {
+	width: 2rem;
+	height: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.35rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	z-index: 70;
+}
+.hamburger .bar {
+	display: block;
+	width: 1.75rem;
+	height: 0.18rem;
+	background: #374151;
+	border-radius: 2px;
+	transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+	position: relative;
+}
+.hamburger.open .bar:nth-child(1) {
+	transform: translateY(0.53rem) rotate(45deg);
+}
+.hamburger.open .bar:nth-child(2) {
+	opacity: 0;
+}
+.hamburger.open .bar:nth-child(3) {
+	transform: translateY(-0.53rem) rotate(-45deg);
+}
+@keyframes slide-out-left {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(-100%);
+		opacity: 1;
+	}
+}
+
+.animate-slide-out-left {
+	animation: slide-out-left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Stronger, more visible light grey shadow for left nav drawer
+.mobile-drawer-shadow {
+	box-shadow: 0 0 0 1px #e5e7eb, 8px 0 32px 0 rgba(0,0,0,0.12), 0 4px 24px 0 rgba(229,231,235,0.25);
+	border-left: 1px solid #e5e7eb;
+}
+@keyframes slide-in-left {
+	from {
+		transform: translateX(-100%);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.animate-slide-in-left {
+	animation: slide-in-left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}

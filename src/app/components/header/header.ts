@@ -1,9 +1,9 @@
 
-import { Component, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, PLATFORM_ID, OnDestroy, inject } from '@angular/core';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 
 @Component({
   selector: 'app-header',
@@ -12,18 +12,19 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
+
 export class Header implements OnDestroy {
   isMobileMenuOpen = false;
   isLargeScreen = true;
   isMobileMenuClosing = false;
   isServicesDropdownOpen = false;
 
+  private breakpointObserver = inject(BreakpointObserver);
+  private platformId = inject(PLATFORM_ID);
+  private router = inject(Router);
   private isBrowser: boolean;
 
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
+  constructor() {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.breakpointObserver.observe([
       Breakpoints.Medium,
@@ -36,6 +37,10 @@ export class Header implements OnDestroy {
     if (this.isBrowser) {
       document.addEventListener('click', this.handleDocumentClick);
     }
+  }
+
+  isActive(path: string): boolean {
+    return this.router.isActive(path, false);
   }
 
   openMobileMenu() {

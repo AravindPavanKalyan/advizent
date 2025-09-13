@@ -1,0 +1,4 @@
+// Global header height variable
+.main-content {
+  padding-top: var(--header-height, 65px);
+}

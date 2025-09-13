@@ -1,9 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+
 @use 'tailwindcss/base';
 @use 'tailwindcss/components';
 @use 'tailwindcss/utilities';
-
-body {
-  padding-top: 72px; // adjust based on header height
+// Global header height variable
+:root {
+  --header-height: 65px;
 }
-
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 90px;
+  }
+}
+/* You can add global styles to this file, and also import other style files */

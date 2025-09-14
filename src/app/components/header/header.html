@@ -66,59 +66,144 @@
         </span>
         <div
           *ngIf="isServicesDropdownOpen"
-          class="fixed w-40 bg-white shadow-lg z-50"
+          class="fixed w-auto bg-white shadow-lg z-50"
           [ngStyle]="{ top: 'var(--header-height)' }"
         >
           <div
             [ngClass]="
-              isActive('/services/service1') ? 'bg-white' : 'bg-gray-200'
+              isActive('/services/drafting-and-bim') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
           ></div>
           <a
-            routerLink="/services/service1"
+            routerLink="/services/drafting-and-bim"
             routerLinkActive="bg-primary text-white"
             [ngClass]="{
               'block px-4 py-2 hover:bg-primary hover:text-white transition': true,
-              'text-primary bg-white': !isActive('/services/service1')
+              'text-primary bg-white': !isActive('/services/drafting-and-bim')
             }"
             (click)="isServicesDropdownOpen = false"
           >
-            Service 1
+            Drafting And BIM
           </a>
           <div
             [ngClass]="
-              isActive('/services/service1') ? 'bg-white' : 'bg-gray-200'
+              isActive('/services/scan-to-bim') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
           ></div>
           <a
-            routerLink="/services/service2"
+            routerLink="/services/scan-to-bim"
             routerLinkActive="bg-primary text-white"
             [ngClass]="{
               'block px-4 py-2 hover:bg-primary hover:text-white transition': true,
-              'text-primary bg-white': !isActive('/services/service2')
+              'text-primary bg-white': !isActive('/services/scan-to-bim')
             }"
             (click)="isServicesDropdownOpen = false"
           >
-            Service 2
+            Scan To BIM
           </a>
           <div
             [ngClass]="
-              isActive('/services/service2') ? 'bg-white' : 'bg-gray-200'
+              isActive('/services/3d-cad-models') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
           ></div>
           <a
-            routerLink="/services/service3"
+            routerLink="/services/3d-cad-models"
             routerLinkActive="bg-primary text-white"
             [ngClass]="{
               'block px-4 py-2 hover:bg-primary hover:text-white transition': true,
-              'text-primary bg-white': !isActive('/services/service3')
+              'text-primary bg-white': !isActive('/services/3d-cad-models')
             }"
             (click)="isServicesDropdownOpen = false"
           >
-            Service 3
+            3D CAD Models
+          </a>
+          <div
+            [ngClass]="
+              isActive('/services/scan-registration') ? 'bg-white' : 'bg-gray-200'
+            "
+            style="height: 1px"
+          ></div>
+          <a
+            routerLink="/services/scan-registration"
+            routerLinkActive="bg-primary text-white"
+            [ngClass]="{
+              'block px-4 py-2 hover:bg-primary hover:text-white transition': true,
+              'text-primary bg-white': !isActive('/services/scan-registration')
+            }"
+            (click)="isServicesDropdownOpen = false"
+          >
+            Scan Registration
+          </a>
+          <div
+            [ngClass]="
+              isActive('/services/plant-3d-model') ? 'bg-white' : 'bg-gray-200'
+            "
+            style="height: 1px"
+          ></div>
+          <a
+            routerLink="/services/plant-3d-model"
+            routerLinkActive="bg-primary text-white"
+            [ngClass]="{
+              'block px-4 py-2 hover:bg-primary hover:text-white transition': true,
+              'text-primary bg-white': !isActive('/services/plant-3d-model')
+            }"
+            (click)="isServicesDropdownOpen = false"
+          >
+            Plant 3D Model
+          </a>
+          <div
+            [ngClass]="
+              isActive('/services/reverse-engineering') ? 'bg-white' : 'bg-gray-200'
+            "
+            style="height: 1px"
+          ></div>
+          <a
+            routerLink="/services/reverse-engineering"
+            routerLinkActive="bg-primary text-white"
+            [ngClass]="{
+              'block px-4 py-2 hover:bg-primary hover:text-white transition': true,
+              'text-primary bg-white': !isActive('/services/reverse-engineering')
+            }"
+            (click)="isServicesDropdownOpen = false"
+          >
+            Reverse Engineering
+          </a>
+          <div
+            [ngClass]="
+              isActive('/services/3d-laser-scanning') ? 'bg-white' : 'bg-gray-200'
+            "
+            style="height: 1px"
+          ></div>
+          <a
+            routerLink="/services/3d-laser-scanning"
+            routerLinkActive="bg-primary text-white"
+            [ngClass]="{
+              'block px-4 py-2 hover:bg-primary hover:text-white transition': true,
+              'text-primary bg-white': !isActive('/services/3d-laser-scanning')
+            }"
+            (click)="isServicesDropdownOpen = false"
+          >
+            3D Laser Scanning
+          </a>
+          <div
+            [ngClass]="
+              isActive('/services/training-services') ? 'bg-white' : 'bg-gray-200'
+            "
+            style="height: 1px"
+          ></div>
+          <a
+            routerLink="/services/training-services"
+            routerLinkActive="bg-primary text-white"
+            [ngClass]="{
+              'block px-4 py-2 hover:bg-primary hover:text-white transition': true,
+              'text-primary bg-white': !isActive('/services/training-services')
+            }"
+            (click)="isServicesDropdownOpen = false"
+          >
+            Training Services
           </a>
           <div class="bg-primary" style="height: 2px"></div>
         </div>

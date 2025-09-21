@@ -1,1 +1,68 @@
-<p>photo-carousel works!</p>
+<div class="photo-carousel">
+  
+  <!-- Image Container -->
+  <div class="carousel-container">
+    <div class="image-wrapper">
+      <ng-container *ngFor="let image of images; let i = index">
+        <div class="image-slide" 
+             [class.active]="i === currentImageIndex && !isTransitioning"
+             [class.dissolving-out]="i === currentImageIndex && isTransitioning"
+             [class.dissolving-in]="i === nextImageIndex && isTransitioning">
+          <img [src]="image.url" 
+               [alt]="image.alt" 
+               class="carousel-image" />
+          
+          <!-- Enhanced Caption Overlay -->
+          <div class="image-caption" 
+               [class.visible]="(i === currentImageIndex && !isTransitioning) || (i === nextImageIndex && isTransitioning)">
+            <div class="caption-content">
+              <h2 class="caption-title">{{ image.title }}</h2>
+              <p class="caption-description">{{ image.description }}</p>
+              <a [routerLink]="image.buttonLink" 
+                 class="caption-button">
+                {{ image.buttonText }}
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 18l6-6-6-6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="nav-arrow nav-arrow-left" 
+            (click)="previousImage()"
+            aria-label="Previous image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+
+    <button class="nav-arrow nav-arrow-right" 
+            (click)="nextImage()"
+            aria-label="Next image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Dot Indicators -->
+  <div class="carousel-indicators">
+    <button *ngFor="let image of images; let i = index"
+            class="indicator-dot"
+            [class.active]="i === currentImageIndex"
+            (click)="goToImage(i)"
+            [aria-label]="'Go to image ' + (i + 1)">
+    </button>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" 
+         [style.width.%]="progressWidth">
+    </div>
+  </div>
+</div>

@@ -6,6 +6,24 @@
 	left: 0;
 	width: 100%;
 	z-index: 1000;
+
+	.headers {
+		font-size: 18px;
+		font-weight: bold;
+		color: #1a124d;
+		letter-spacing: 0.02em;
+		text-transform: capitalize;
+	}
+
+	.header-dropdown a {
+		font-size: 15px !important;
+		font-weight: normal;
+		border-bottom: 1px solid #f4f4f4;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
 }
 
 // Ensure inner content fills header height
@@ -80,4 +98,9 @@
 }
 	.app-header, .app-header * {
 	  font-size: 18px;
+	}
+
+	// Custom router active link styling
+	.router-active {
+		color: theme('colors.primary') !important;
 	}

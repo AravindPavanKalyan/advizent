@@ -1,0 +1,38 @@
+<section class="background-image-cards-section">
+  <!-- Header -->
+  <div class="cards-header" *ngIf="showHeader && (title || subtitle)">
+    <div class="flex flex-col items-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800" *ngIf="title">
+        {{ title }}
+      </h2>
+      <p class="text-center text-lg text-gray-600 mb-2 max-w-2xl" *ngIf="subtitle">
+        {{ subtitle }}
+      </p>
+      <span class="heading-underline mt-2" *ngIf="title"></span>
+    </div>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="bg-cards-grid" [attr.data-columns]="columns">
+    <div *ngFor="let card of cards" 
+         class="bg-image-card"
+         [style.height]="cardHeight"
+         [style.background-image]="'url(' + card.backgroundImage + ')'">
+      
+      <div class="card-overlay"></div>
+      
+      <div class="card-content">
+        <h3 class="card-title">{{ card.title }}</h3>
+        <p class="card-description">{{ card.description }}</p>
+        <a [routerLink]="card.buttonRoute" 
+           class="card-button"
+           [attr.aria-label]="'Learn more about ' + card.title">
+          {{ card.buttonText }}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 18l6-6-6-6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

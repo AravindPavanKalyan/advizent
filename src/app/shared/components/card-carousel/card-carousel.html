@@ -1,0 +1,63 @@
+<!-- Interactive 3D Coverflow Carousel -->
+<div class="carousel-container" 
+     [style.--autoplay-delay]="autoplayDelay + 'ms'"
+     (mouseenter)="onMouseEnter()" 
+     (mouseleave)="onMouseLeave()">
+  <div class="carousel-wrapper">
+    <!-- Cards -->
+    <div class="carousel-track">
+      <div 
+        *ngFor="let card of cards; let i = index"
+        class="carousel-card"
+        [class.active]="i === currentIndex"
+        [style.transform]="getCardTransform(i)"
+        [style.z-index]="getCardZIndex(i)"
+        [style.background-image]="card.backgroundImage ? 'url(' + card.backgroundImage + ')' : null"
+        (click)="goToSlide(i)"
+      >
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <div class="card-icon" [innerHTML]="getSafeIcon(card.icon)"></div>
+          <h3 class="card-title">{{ card.title }}</h3>
+          <p class="card-description">{{ card.description }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <button class="nav-btn prev-btn" (click)="previousSlide()" aria-label="Previous slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    
+    <button class="nav-btn next-btn" (click)="nextSlide()" aria-label="Next slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Play/Pause Button -->
+    <button class="play-pause-btn" (click)="toggleAutoplay()" aria-label="Toggle autoplay" *ngIf="cards.length > 1">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" *ngIf="!isAutoplayActive">
+        <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+      </svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" *ngIf="isAutoplayActive">
+        <path d="M6 4H10V20H6V4ZM14 4H18V20H14V4Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Dots Indicator -->
+  <div class="carousel-dots">
+    <button 
+      *ngFor="let card of cards; let i = index"
+      class="dot"
+      [class.active]="i === currentIndex"
+      (click)="goToSlide(i)"
+      [attr.aria-label]="'Go to slide ' + (i + 1)"
+    >
+      <div class="dot-progress" *ngIf="i === currentIndex && isAutoplayActive"></div>
+    </button>
+  </div>
+</div>

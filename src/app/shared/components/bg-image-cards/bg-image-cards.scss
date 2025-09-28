@@ -1,0 +1,202 @@
+.background-image-cards-section {
+  padding: 4rem 0;
+
+  .cards-header {
+    text-align: center;
+    
+    .heading-underline {
+      display: inline-block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #1A124D, #4A90E2);
+      border-radius: 2px;
+    }
+  }
+}
+
+.bg-cards-grid {
+  display: grid;
+  gap: 1.5rem; // Reduced gap
+  max-width: 1000px; // Reduced max-width
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  // Grid columns based on data attribute - smaller cards
+  &[data-columns="1"] {
+    grid-template-columns: 1fr;
+  }
+  
+  &[data-columns="2"] {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Reduced from 400px
+  }
+  
+  &[data-columns="3"] {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // Reduced from 300px
+  }
+  
+  &[data-columns="4"] {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); // Reduced from 280px
+  }
+}
+
+.bg-image-card {
+  position: relative;
+  border-radius: 16px; // Slightly smaller radius
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); // Lighter shadow
+  
+  // Default dimmed state
+  filter: brightness(0.7) saturate(0.8);
+  transform: scale(1);
+  
+  &:hover {
+    // Brighten on hover
+    filter: brightness(1.1) saturate(1.1);
+    transform: scale(1.02) translateY(-3px); // Reduced scale and movement
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); // Lighter shadow
+    z-index: 10;
+    
+    .card-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+    }
+    
+    .card-button {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// When one card is hovered, dim the others more
+.bg-cards-grid:hover .bg-image-card:not(:hover) {
+  filter: brightness(0.5) saturate(0.6);
+  transform: scale(0.98);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  transition: background 0.4s ease;
+}
+
+.card-content {
+  position: absolute;
+  top: 50%; // Center vertically
+  left: 0;
+  right: 0;
+  transform: translateY(-50%); // Perfect centering
+  padding: 1.5rem; // Reduced padding
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.card-title {
+  font-size: 1.4rem; // Reduced from 1.75rem
+  font-weight: 700;
+  margin-bottom: 0.75rem; // Reduced margin
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.card-description {
+  font-size: 0.85rem; // Reduced from 1rem
+  line-height: 1.4;
+  margin-bottom: 1.5rem; // Reduced margin
+  opacity: 0.95;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // Reduced from 3 lines
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.5rem; // Reduced padding
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem; // Reduced font size
+  text-transform: uppercase;
+  letter-spacing: 0.5px; // Reduced letter spacing
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px); // Reduced from 30px
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(0) scale(1.03); // Reduced scale
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); // Lighter shadow
+  }
+  
+  svg {
+    margin-left: 0.4rem; // Reduced margin
+    width: 0.9rem; // Smaller icon
+    height: 0.9rem;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover svg {
+    transform: translateX(3px); // Reduced movement
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .bg-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem; // Reduced gap on mobile
+  }
+  
+  .bg-image-card {
+    height: 280px !important; // Reduced from 350px
+  }
+  
+  .card-content {
+    padding: 1.25rem; // Reduced padding on mobile
+  }
+  
+  .card-title {
+    font-size: 1.25rem; // Reduced from 1.5rem
+  }
+  
+  .card-description {
+    font-size: 0.8rem; // Reduced from 0.9rem
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .bg-cards-grid[data-columns="3"],
+  .bg-cards-grid[data-columns="4"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

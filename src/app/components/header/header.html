@@ -6,7 +6,7 @@
         <img
           src="/assets/Advizent-Blue-Transparent-FIT-1024x349.png"
           alt="Advizent Logo"
-          class="h-10 w-auto"
+          class="h-12 w-auto"
         />
       </a>
     </div>
@@ -19,22 +19,23 @@
       <a
         routerLink="/"
         [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="text-blue-600"
-        class="hover:text-blue-600 transition"
+        routerLinkActive="router-active"
+        class="hover:text-blue-600 transition headers"
       >
         Home
       </a>
 
       <div
-        class="relative group h-full flex"
+        class="relative group h-full flex headers"
         (mouseenter)="isServicesDropdownOpen = true"
         (mouseleave)="isServicesDropdownOpen = false"
       >
         <span class="flex items-center">
+          <!-- if hover needed add  class="hover:text-blue-600 transition focus:outline-none"-->
           <a
             routerLink="/services"
-            routerLinkActive="text-blue-600"
-            class="hover:text-blue-600 transition focus:outline-none"
+            routerLinkActive="router-active"
+            class=""
             aria-haspopup="true"
             [attr.aria-expanded]="isServicesDropdownOpen"
             tabindex="0"
@@ -53,7 +54,7 @@
               [ngClass]="{ 'rotate-180': isServicesDropdownOpen }"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
+              stroke-width="3"
               viewBox="0 0 24 24"
             >
               <path
@@ -66,15 +67,15 @@
         </span>
         <div
           *ngIf="isServicesDropdownOpen"
-          class="fixed w-auto bg-white shadow-lg z-50"
+          class="fixed w-auto bg-white shadow-lg z-50 header-dropdown"
           [ngStyle]="{ top: 'var(--header-height)' }"
         >
-          <div
+          <!-- <div
             [ngClass]="
               isActive('/services/drafting-and-bim') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
-          ></div>
+          ></div> -->
           <a
             routerLink="/services/drafting-and-bim"
             routerLinkActive="bg-primary text-white"
@@ -86,12 +87,12 @@
           >
             Drafting And BIM
           </a>
-          <div
+          <!-- <div
             [ngClass]="
               isActive('/services/scan-to-bim') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
-          ></div>
+          ></div> -->
           <a
             routerLink="/services/scan-to-bim"
             routerLinkActive="bg-primary text-white"
@@ -103,12 +104,12 @@
           >
             Scan To BIM
           </a>
-          <div
+          <!-- <div
             [ngClass]="
               isActive('/services/3d-cad-models') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
-          ></div>
+          ></div> -->
           <a
             routerLink="/services/3d-cad-models"
             routerLinkActive="bg-primary text-white"
@@ -120,12 +121,12 @@
           >
             3D CAD Models
           </a>
-          <div
+          <!-- <div
             [ngClass]="
               isActive('/services/scan-registration') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
-          ></div>
+          ></div> -->
           <a
             routerLink="/services/scan-registration"
             routerLinkActive="bg-primary text-white"
@@ -137,12 +138,12 @@
           >
             Scan Registration
           </a>
-          <div
+          <!-- <div
             [ngClass]="
               isActive('/services/plant-3d-model') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
-          ></div>
+          ></div> -->
           <a
             routerLink="/services/plant-3d-model"
             routerLinkActive="bg-primary text-white"
@@ -154,12 +155,12 @@
           >
             Plant 3D Model
           </a>
-          <div
+          <!-- <div
             [ngClass]="
               isActive('/services/reverse-engineering') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
-          ></div>
+          ></div> -->
           <a
             routerLink="/services/reverse-engineering"
             routerLinkActive="bg-primary text-white"
@@ -171,12 +172,12 @@
           >
             Reverse Engineering
           </a>
-          <div
+          <!-- <div
             [ngClass]="
               isActive('/services/3d-laser-scanning') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
-          ></div>
+          ></div> -->
           <a
             routerLink="/services/3d-laser-scanning"
             routerLinkActive="bg-primary text-white"
@@ -188,12 +189,12 @@
           >
             3D Laser Scanning
           </a>
-          <div
+          <!-- <div
             [ngClass]="
               isActive('/services/training-services') ? 'bg-white' : 'bg-gray-200'
             "
             style="height: 1px"
-          ></div>
+          ></div> -->
           <a
             routerLink="/services/training-services"
             routerLinkActive="bg-primary text-white"
@@ -211,27 +212,27 @@
 
       <a
         routerLink="/product"
-        routerLinkActive="text-blue-600"
-        class="hover:text-blue-600 transition"
+        routerLinkActive="router-active"
+        class="hover:text-blue-600 transition headers"
       >
         Product
       </a>
       <a
         routerLink="/industries"
-        routerLinkActive="text-blue-600"
-        class="hover:text-blue-600 transition"
+        routerLinkActive="router-active"
+        class="hover:text-blue-600 transition headers"
         >Industries</a
       >
       <a
         routerLink="/projects"
-        routerLinkActive="text-blue-600"
-        class="hover:text-blue-600 transition"
+        routerLinkActive="router-active"
+        class="hover:text-blue-600 transition headers"
         >Projects</a
       >
       <a
         routerLink="/contact"
-        routerLinkActive="text-blue-600"
-        class="hover:text-blue-600 transition"
+        routerLinkActive="router-active"
+        class="hover:text-blue-600 transition headers"
         >Contact</a
       >
       <a
@@ -285,7 +286,7 @@
             <a
               routerLink="/"
               [routerLinkActiveOptions]="{ exact: true }"
-              routerLinkActive="text-blue-600"
+              routerLinkActive="router-active"
               (click)="closeMobileMenu()"
               >Home</a
             >
@@ -293,7 +294,7 @@
           <li>
             <a
               routerLink="/about"
-              routerLinkActive="text-blue-600"
+              routerLinkActive="router-active"
               (click)="closeMobileMenu()"
               >About Us</a
             >
@@ -301,7 +302,7 @@
           <li>
             <a
               routerLink="/services"
-              routerLinkActive="text-blue-600"
+              routerLinkActive="router-active"
               (click)="closeMobileMenu()"
               class="font-semibold mb-1"
               >Services</a
@@ -310,7 +311,7 @@
               <li>
                 <a
                   routerLink="/services/service1"
-                  routerLinkActive="text-blue-600"
+                  routerLinkActive="router-active"
                   (click)="closeMobileMenu()"
                   >Service 1</a
                 >
@@ -318,7 +319,7 @@
               <li>
                 <a
                   routerLink="/services/service2"
-                  routerLinkActive="text-blue-600"
+                  routerLinkActive="router-active"
                   (click)="closeMobileMenu()"
                   >Service 2</a
                 >
@@ -326,7 +327,7 @@
               <li>
                 <a
                   routerLink="/services/service3"
-                  routerLinkActive="text-blue-600"
+                  routerLinkActive="router-active"
                   (click)="closeMobileMenu()"
                   >Service 3</a
                 >
@@ -336,7 +337,7 @@
           <li>
             <a
               routerLink="/product"
-              routerLinkActive="text-blue-600"
+              routerLinkActive="router-active"
               (click)="closeMobileMenu()"
               >Product</a
             >
@@ -344,7 +345,7 @@
           <li>
             <a
               routerLink="/industries"
-              routerLinkActive="text-blue-600"
+              routerLinkActive="router-active"
               (click)="closeMobileMenu()"
               >Industries</a
             >
@@ -352,7 +353,7 @@
           <li>
             <a
               routerLink="/projects"
-              routerLinkActive="text-blue-600"
+              routerLinkActive="router-active"
               (click)="closeMobileMenu()"
               >Projects</a
             >
@@ -360,7 +361,7 @@
           <li>
             <a
               routerLink="/contact"
-              routerLinkActive="text-blue-600"
+              routerLinkActive="router-active"
               (click)="closeMobileMenu()"
               >Contact</a
             >

@@ -1,0 +1,37 @@
+.contacts-header {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/assets/4d-bim-services-main.jpg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.contacts-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(from theme('colors.primary') r g b / 0.6);
+  z-index: 1;
+}
+
+.contacts-header h1 {
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.contacts-content {
+  padding: 6rem 2rem;
+}

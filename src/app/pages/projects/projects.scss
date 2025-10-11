@@ -1,0 +1,151 @@
+.projects-header {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/assets/4d-bim-services-main.jpg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.projects-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(from theme('colors.primary') r g b / 0.6);
+  z-index: 1;
+}
+
+.service-title-underline {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 4px;
+    background: linear-gradient(to right, #1A124D 50%, #e5e7eb 50%);
+    margin: 0 auto;
+}
+
+.projects-header h1 {
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  margin: 0;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.projects-content {
+  padding: 6rem 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center; 
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  max-width: 380px;
+  justify-self: center;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: theme('colors.primary');
+}
+
+.project-info p {
+  color: #666;
+  line-height: 1.6;
+}
+
+// ...existing code...
+
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 25px;
+  background: white;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: theme('colors.primary');
+  color: theme('colors.primary');
+}
+
+.filter-btn.active {
+  background: theme('colors.primary');
+  border-color: theme('colors.primary');
+  color: white;
+}
+
+.project-services {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.service-tag {
+  background: rgba(from theme('colors.primary') r g b / 0.1);
+  color: theme('colors.primary');
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}

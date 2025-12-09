@@ -1,0 +1,196 @@
+@import "../projects.scss";
+
+.project-details {
+  // padding: 16px;
+  // max-width: 900px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+
+  .projects-header {
+    height: 30vh !important;
+  }
+
+  .project-details-container {
+    // center this container horizontally and vertically within the viewport
+    max-width: 1200px;
+    margin: 0 auto; /* horizontal center */
+    // min-height: calc(
+    //   100vh - 160px
+    // ); /* adjust 160px if your header/footer heights differ */
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center of inner content */
+    gap: 40px;
+    padding: 40px 16px;
+    box-sizing: border-box;
+    position: relative;
+
+    .project-details-section {
+      /* fixed-ish one-third column */
+      flex: 0 0 33%;
+      // max-width: 380px;
+      width: 100%;
+
+      .project-details-table {
+        padding: 15px;
+        .table {
+          width: 100%;
+          padding-bottom: 0px !important ;
+          padding: 30px 24px;
+          border: 1px solid #dedede;
+          overflow: hidden;
+
+          .widget-title {
+            font-size: 20px;
+            background-color: theme("colors.primary");
+            color: #fff;
+            padding: 20px 25px;
+            margin: -30px -24px 0px -24px;
+            text-transform: capitalize;
+          }
+
+          .info-item {
+            // font-family: 'SF Compact Text', sans-serif;
+            margin-left: -24px;
+            margin-right: -24px;
+            padding: 16px 24px;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            font-size: 17px;
+            border-bottom: 1px solid #dedede;
+
+            .inner-icon {
+              flex: none;
+              min-width: 20px;
+
+              i {
+                color: #1a191d;
+              }
+
+              i::before {
+                content: "\f106";
+                font-family: Flaticon;
+                font-size: inherit;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                // font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+              }
+            }
+
+            .inner-text {
+              font-size: 17px;
+              font-family: "SF Compact Text", sans-serif;
+            }
+          }
+
+          .info-item:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .about-project-section {
+      width: 67%;
+
+      .about-project {
+        flex: 1;
+        padding: 15px;
+
+        h3 {
+          // font-family: "Google Sans", serif;
+          font-size: 30px;
+          font-weight: 700;
+          margin-bottom: 15px;
+          // text-transform: uppercase;
+        }
+
+        p {
+          line-height: 1.6;
+          margin-bottom: 15px;
+          font-family: "SF Compact Text", sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          overflow-wrap: break-word;
+        }
+      }
+    }
+  }
+  
+
+  button {
+    background: transparent;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    margin: 8px 0 12px;
+    font-size: 1.6rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 12px;
+    border-radius: 6px;
+  }
+
+  p {
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 6px;
+      strong {
+        margin-right: 6px;
+      }
+    }
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .project-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .project-details-container {
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .project-details-container .project-details-section,
+  .project-details-container .about-project {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-details-container .project-details-table .table {
+    padding: 20px;
+  }
+}

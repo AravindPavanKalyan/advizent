@@ -290,7 +290,8 @@
 
 .progress-bar {
   height: 100%;
-  background: rgba(255, 255, 255, 0.7); // Transparent white
+  // background: rgba(255, 255, 255, 0.7); // Transparent white
+  background: theme('colors.primary');
   transition: none; // Remove transition for smooth timing animation
   position: relative;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); // Subtle shadow for visibility
@@ -415,3 +416,4 @@
   background: #000;
   z-index: -1;
 }
+

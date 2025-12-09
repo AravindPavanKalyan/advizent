@@ -15,14 +15,13 @@ import { Product } from './pages/product/product';
 import { Industries } from './pages/industries/industries';
 import { Projects } from './pages/projects/projects';
 import { Contact } from './pages/contact/contact';
-// import { GetStartedComponent } from './pages/get-started/get-started';
 
 export const routes: Routes = [
   { path: '', component: Home, pathMatch: 'full' },
   { path: 'about', component: About },
   {
-  path: 'services',
-  component: ServicesProvided,
+    path: 'services',
+    component: ServicesProvided,
     children: [
       { path: 'drafting-and-bim', component: DraftingAndBim },
       { path: 'scan-to-bim', component: ScanToBim },
@@ -37,7 +36,7 @@ export const routes: Routes = [
   { path: 'product', component: Product },
   { path: 'industries', component: Industries },
   { path: 'projects', component: Projects },
+  { path: 'project/:id', loadComponent: () => import('./pages/projects/project-details/project-details').then(m => m.ProjectDetail) },
   { path: 'contact', component: Contact },
-//   { path: 'get-started', component: GetStartedComponent },
   { path: '**', redirectTo: '' } // fallback
 ];

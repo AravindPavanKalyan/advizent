@@ -1,0 +1,205 @@
+<div *ngIf="project; else notFound" class="project-details">
+  <section class="projects-header">
+    <h1>{{ project.title }}</h1>
+  </section>
+
+  <div class="project-details-container">
+    <div class="project-details-section">
+      <div class="project-details-table">
+        <div class="table">
+          <h3 class="widget-title">Project Details</h3>
+
+          <div class="info-item">
+            <div class="inner-icon"><i aria-hidden="true" class="flaticon flaticon-building"></i></div>
+            <div class="inner-text">
+              <span class="label">Area:</span>
+              <span class="info-text">8,000 sq.m.</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="inner-icon"><i aria-hidden="true" class="steeler zmdi zmdi-layers"></i></div>
+            <div class="inner-text">
+              <span class="label">LOD:</span>
+              <span class="info-text">LOD 300</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="inner-icon"><i aria-hidden="true" class="steeler zmdi zmdi-calendar-check"></i></div>
+            <div class="inner-text">
+              <span class="label">Year:</span>
+              <span class="info-text">{{ project.year }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="inner-icon"><i aria-hidden="true" class="steeler zmdi zmdi-pin"></i></div>
+            <div class="inner-text">
+              <span class="label">Location:</span>
+              <span class="info-text">North Carolina</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="inner-icon"><i aria-hidden="true" class="steeler zmdi zmdi-devices"></i></div>
+            <div class="inner-text">
+              <span class="label">Software Used:</span>
+              <span class="info-text">Revit</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="inner-icon"><i aria-hidden="true" class="steeler zmdi zmdi-share"></i></div>
+            <div class="inner-text share-icon">
+              <span>Share:</span>
+              <ul>
+                <li><a class="fb-social" title="Facebook" target="_blank"
+                    href="https://www.facebook.com/sharer/sharer.php?u=https://www.marsbim.com/projects/residential-point-cloud-to-bim/"
+                    aria-label="Share on Facebook"><i class="fab fac-facebook-f"></i></a></li>
+                <li><a class="tw-social" title="Twitter" target="_blank"
+                    href="https://twitter.com/home?status=https://www.marsbim.com/projects/residential-point-cloud-to-bim/"
+                    aria-label="Share on Twitter"><i class="fab fac-twitter"></i></a></li>
+                <li><a class="pin-social" title="Pinterest" target="_blank"
+                    href="https://pinterest.com/pin/create/button/?url=https://www.marsbim.com/wp-content/uploads/2024/08/Residential-Point-Cloud-To-BIM.jpg&media=&description=Residential+Point+Cloud+To+BIM"
+                    aria-label="Share on Pinterest"><i class="fab fac-pinterest-p"></i></a></li>
+                <li><a class="lk-social" title="LinkedIn" target="_blank"
+                    href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.marsbim.com/projects/residential-point-cloud-to-bim/"
+                    aria-label="Share on LinkedIn"><i class="fab fac-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="about-project-section">
+      <div class="about-project">
+        <div class="cms-heading layout1 heading-">
+          <h3 class="custom-heading"><span>About Project</span></h3>
+        </div>
+
+        <div class="elementor-widget-container">
+          <!-- static descriptive text (keeps original snippet content); you can replace with project.description if desired) -->
+          <p>
+            This scan-to-BIM project in North Carolina involved converting point cloud scan data into a comprehensive 3D
+            BIM model for a multi-storey residential building. This project highlighted MaRS BIM Solutions’ ability to
+            transform complex scan data into accurate and detailed BIM models, crucial for efficient planning,
+            renovation, and management of multi-storey residential properties. Our expertise ensured that the provided
+            scan data was meticulously converted into a reliable and detailed 3D model.
+          </p>
+          <p>
+            Our <a href="/services/scan-to-bim/" style="text-decoration-line:underline">Scan to BIM services</a> played
+            a key role in streamlining the project by enabling precise visualization and analysis of the building’s
+            structure. The generated BIM model helped in identifying potential design challenges early, ensuring smooth
+            collaboration among stakeholders and facilitating accurate decision-making. By leveraging cutting-edge tools
+            and proven workflows, we delivered a high-quality model that serves as a valuable resource for both current
+            and future project phases.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- project photos -->
+  <section class="project-gallery-container" *ngIf="project.photos?.length">
+    <div class="project-gallery">
+      <div class="gallery-item" *ngFor="let photo of project.photos">
+        <img [src]="photo.url" [alt]="photo.altText || project.title" />
+      </div>
+    </div>
+  </section>
+
+  <!-- challenges-and-approach -->
+  <section class="challenges-and-approach-container">
+    <div class="challenges-and-approach">
+      <div class="challenges-and-approach-section">
+        <div class="challenge">
+          <div class="title">Our Client's Challenge</div>
+          <div class="challenges">
+            <ul class="challenges-list">
+              <li class="challenges-item" *ngFor="let item of project.challenges">
+                <span class="item-icon">
+                  <svg aria-hidden="true" class="e-font-icon-svg e-fas-arrow-right" viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                    </path>
+                  </svg>
+                </span>
+                <span class="item-text">{{ item }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="challenges-and-approach-section">
+        <div class="approach">
+          <div class="title">Our Client's Challenge</div>
+          <div class="approaches">
+            <ul class="challenges-list">
+              <li class="challenges-item" *ngFor="let item of project.approaches">
+                <span class="item-icon">
+                  <svg aria-hidden="true" class="e-font-icon-svg e-fas-arrow-right" viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                    </path>
+                  </svg>
+                </span>
+                <span class="item-text">{{ item }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact us block -->
+  <section class="contact-us-container">
+    <div class="contact-us-block">
+      <div class="contact-us-section" style="flex: 0 0 70%;">
+        <div class="contact-us-heading">Looking for BIM Services in North Carolina?</div>
+        <div class="contact-us-para">MaRS BIM Solutions delivers advanced BIM solutions in North Carolina. Experience
+          precision and collaboration like never before.</div>
+      </div>
+      <div class="contact-us-section" style="flex: 0 0 30%;">
+        <a class="caption-button" href="/contact"> Contact Us 
+          <svg fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="ml-2 w-5 h-5">
+            <path d="M5 12h14M13 18l6-6-6-6"></path>
+          </svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related projects carousel -->
+  <section class="related-projects-container" *ngIf="relatedProjects?.length">
+    <h3 class="related-title">Related Projects</h3>
+
+    <div
+      class="related-carousel"
+      #carousel
+      (mouseenter)="pauseCarousel()"
+      (mouseleave)="resumeCarousel()"
+      aria-roledescription="carousel"
+    >
+      <div class="carousel-track">
+        <div class="carousel-item" *ngFor="let p of relatedProjects; let i = index">
+          <a (click)="navigateToProject(p.id)" role="link" tabindex="0" class="carousel-link">
+            <img [src]="p.image" [alt]="p.title" />
+            <div class="title">{{ p.title }}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<ng-template #notFound>
+  <p>Project not found.</p>
+  <button (click)="goBack()">Back</button>
+</ng-template>

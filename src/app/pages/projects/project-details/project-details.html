@@ -104,10 +104,38 @@
 
   <!-- project photos -->
   <section class="project-gallery-container" *ngIf="project.photos?.length">
-    <div class="project-gallery">
-      <div class="gallery-item" *ngFor="let photo of project.photos">
-        <img [src]="photo.url" [alt]="photo.altText || project.title" />
+    <div class="card flex justify-center">
+      <!-- Thumbnails grid -->
+      <div *ngIf="project.photos && project.photos.length > 0" class="grid grid-cols-12 gap-4" style="max-width: 800px;">
+        <div *ngFor="let image of project.photos; let index = index" class="col-span-4" [attr.data-key]="index">
+          <!-- using image.url as thumbnail source; replace with image.thumbnailUrl if available -->
+          <img
+            [src]="image.url"
+            [alt]="image.altText || project.title"
+            style="cursor: pointer; width: 100%; height: auto;"
+            (click)="openGalleria(index)"
+          />
+        </div>
       </div>
+
+      <!-- PrimeNG Galleria (full-screen viewer) -->
+      <p-galleria
+        [value]="project.photos"
+        [(visible)]="displayCustom"
+        [(activeIndex)]="activeIndex"
+        [responsiveOptions]="responsiveOptions"
+        [containerStyle]="{ 'max-width': '850px' }"
+        [numVisible]="7"
+        [circular]="true"
+        [fullScreen]="true"
+        [showItemNavigators]="true"
+        [showThumbnails]="false"
+      >
+        <ng-template #item let-item>
+          <!-- using item.url for full image; adjust if your photo objects use a different field -->
+          <img [src]="item.url" [alt]="item.altText || project.title" style="width: 100%; display: block;" />
+        </ng-template>
+      </p-galleria>
     </div>
   </section>
 

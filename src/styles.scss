@@ -1,10 +1,16 @@
-
 @use 'tailwindcss/base';
 @use 'tailwindcss/components';
 @use 'tailwindcss/utilities';
 // Global header height variable
 :root {
   --header-height: 65px;
+  /* Ensure PrimeNG Galleria overlay (appended to body) picks up your variables */
+  --p-galleria-nav-button-background: rgba(0, 0, 0, 0.6);
+  --p-galleria-nav-button-color: #ffffff;
+  --p-galleria-nav-button-size: 44px;
+  --p-galleria-nav-button-gutter: 10px;
+  --p-galleria-transition-duration: 200ms;
+  --p-galleria-nav-button-prev-border-radius: 50%;
 }
 @media (min-width: 1024px) {
   :root {
@@ -12,3 +18,24 @@
   }
 }
 /* You can add global styles to this file, and also import other style files */
+
+/* Make sure the nav buttons actually use those variables (higher specificity) */
+.p-galleria-nav-button, .p-galleria-close-button {
+    border-radius: var(--p-galleria-nav-button-prev-border-radius) !important;
+  background: var(--p-galleria-nav-button-background) !important;
+  color: var(--p-galleria-nav-button-color) !important;
+  width: var(--p-galleria-nav-button-size) !important;
+  height: var(--p-galleria-nav-button-size) !important;
+  transition: background var(--p-galleria-transition-duration), color var(--p-galleria-transition-duration) !important;
+}
+
+.p-galleria-prev-button {
+  border-radius: var(--p-galleria-nav-button-prev-border-radius) !important;
+  left: 0 !important;
+}
+
+p-galleria {
+  .p-galleria-mask {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

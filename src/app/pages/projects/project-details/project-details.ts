@@ -4,11 +4,12 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProjectsService, Project } from '../projects.service';
 import { isPlatformBrowser } from '@angular/common';
+import { GalleriaModule } from 'primeng/galleria';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, GalleriaModule],
   templateUrl: './project-details.html',
   styleUrls: ['./project-detail.scss',  '../projects.scss']
 })
@@ -28,6 +29,15 @@ export class ProjectDetail implements OnInit, AfterViewInit, OnDestroy {
   private isBrowser = false;
   private shouldStartCarousel = false;
   private currentIndex = 0;
+
+  // gallery state for the PrimeNG Galleria used in the template
+  displayCustom: boolean = false;
+  activeIndex: number = 0;
+  responsiveOptions: any[] = [
+    { breakpoint: '1024px', numVisible: 5 },
+    { breakpoint: '768px', numVisible: 3 },
+    { breakpoint: '560px', numVisible: 1 }
+  ];
 
   constructor(
     private route: ActivatedRoute,
@@ -140,4 +150,10 @@ export class ProjectDetail implements OnInit, AfterViewInit, OnDestroy {
 
   pauseCarousel() { this.paused = true; }
   resumeCarousel() { this.paused = false; }
+
+  // open gallery at index
+  openGalleria(index: number) {
+    this.activeIndex = index;
+    this.displayCustom = true;
+  }
 }

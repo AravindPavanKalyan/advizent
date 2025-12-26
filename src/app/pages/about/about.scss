@@ -1,0 +1,352 @@
+.AboutUs-header {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/assets/4d-bim-services-main.jpg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.AboutUs-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(from theme("colors.primary") r g b / 0.6);
+  z-index: 1;
+}
+
+.AboutUs-header h1 {
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.about-us-counts {
+    background-color: black;
+    padding: 35px 0;
+    .about-us-counts-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+        .cards {
+            width: 20%;
+            background-color: rgb(51, 51, 51);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+            padding: 24px 0px;
+            color: white;
+              position: relative;
+    
+            .count h3 {
+            font-size: 50px;
+            font-weight: 700;
+            }
+    
+            .label h4 {
+            font-size: 17px;
+            font-weight: 600;
+            text-transform: uppercase;
+            }
+        }
+
+        .cards::before {
+            content: "";
+            display: block;
+            width: 17px;
+            height: 17px;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top: 3px solid #1a124d;
+            border-left: 3px solid #1a124d;
+        }
+
+        .cards::after {
+            content: "";
+            display: block;
+            width: 17px;
+            height: 17px;
+            background-color: transparent;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-right: 3px solid #1a124d;
+            border-bottom: 3px solid #1a124d;
+        }
+    }
+}
+
+.what-we-offer {
+  padding: 80px 0;
+  background-color: beige;
+
+  @media screen and (max-width: 1023px) {
+    padding: 80px 40px;
+  }
+
+  .what-we-offer-content {
+    // text-align: center;
+    max-width: 1200px;
+    margin: 0 auto; /* horizontal center */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    // padding: 0 16px;
+    box-sizing: border-box;
+
+    h2 {
+      font-family: "Google Sans", serif;
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    p {
+      font-family: "SF Compact Text", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      //   margin: 10px 0;
+    }
+    .services-pills {
+      display: flex;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      gap: 10px 10px;
+      a {
+        background: rgba(from theme("colors.primary") r g b / 0.1);
+        color: theme("colors.primary");
+        padding: 10px 25px 10px 25px;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+
+  }
+}
+
+
+    .caption-button {
+        margin-top: 15px;
+        width: max-content;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 0; // Sharp edges
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transform: rotateY(360deg);
+  transition: opacity 0.8s ease-in-out 3s, transform 0.8s ease-in-out 3s;
+  
+  &:hover {
+    background: #f5f5f5;
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  svg {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+.aboutus-company-content {
+  padding: 80px 0;
+
+  @media screen and (max-width: 1023px) {
+    padding: 80px 40px;
+  }
+  .about-company {
+    max-width: 1200px;
+    margin: 0 auto; /* horizontal center */
+    // min-height: calc(
+    //   100vh - 160px
+    // ); /* adjust 160px if your header/footer heights differ */
+    display: flex;
+    // align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center of inner content */
+    // gap: 40px;
+    // padding: 40px 16px;
+    box-sizing: border-box;
+    position: relative;
+    flex-direction: column;
+
+    .sub-heading {
+      font-family: "Google Sans", serif;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: 0.05em;
+      font-size: 20px;
+      margin-bottom: 11px;
+      text-transform: capitalize;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-family: "Google Sans", serif;
+      font-size: 40px;
+      font-weight: 700;
+    }
+    p {
+      font-family: "SF Compact Text", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      margin: 10px 0;
+    }
+  }
+}
+
+  .related-projects-container {
+    // max-width: 1200px;
+    // margin: 32px auto;
+    padding: 32px 16px;
+    box-sizing: border-box;
+    background-color: rgb(229, 231, 235);
+
+    .related-title {
+      margin-bottom: 24px;
+      font-family: "Google Sans", serif;
+font-size: 40px;
+font-weight: 700;
+      text-align: center;
+    }
+
+    .related-carousel {
+      position: relative;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 16px; /* horizontal padding accounted in mobile calc */
+
+      /* hide scrollbar while preserving scroll behavior */
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* Safari/WebKit */
+        height: 0;
+        width: 0;
+      }
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .carousel-item {
+      scroll-snap-align: center;
+      flex: 0 0 min(33.333%, 360px);
+      width: min(33.333%, 360px);
+      max-width: 360px;
+      box-sizing: border-box;
+    }
+
+    .carousel-link img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* Tablet: two items per view */
+    @media (max-width: 900px) {
+      .carousel-item { flex: 0 0 min(50%, 360px); width: min(50%, 360px); }
+      .carousel-link img { height: 180px; }
+    }
+
+    /* Mobile: one item per view which exactly fits viewport minus container padding (16px each side) */
+    @media (max-width: 640px) {
+      .related-carousel { gap: 0; padding: 12px 16px; }
+      .carousel-item {
+        flex: 0 0 calc(100vw - 32px);
+        width: calc(100vw - 32px);
+        max-width: calc(100vw - 32px);
+        margin: 0 auto;
+      }
+      .carousel-link img { height: 260px; }
+    }
+  }
+
+  /* pause on hover and respect prefers-reduced-motion */
+  .related-carousel:hover .carousel-track,
+  .related-carousel:focus-within .carousel-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track { animation: none !important; }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .related-projects-container .carousel-item { flex: 0 0 45%; width: 45%; }
+  }
+
+    @media (max-width: 640px) {
+    /* ensure the carousel shows exactly one item per view sized to the viewport */
+    .related-projects-container {
+      /* remove extra horizontal gap so calc matches exactly */
+      .carousel-track {
+        gap: 0;
+      }
+
+      /* item width = viewport width minus container horizontal padding (16px each side) */
+      .carousel-item {
+        flex: 0 0 calc(100vw - 32px);
+        width: calc(100vw - 32px);
+        max-width: calc(100vw - 32px);
+        margin: 0 auto; /* center within the visible area */
+        box-sizing: border-box;
+      }
+
+      .carousel-item img,
+      .project-gallery .gallery-item img {
+        /* keep images fitting the card */
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+}

@@ -236,10 +236,16 @@
         >Contact</a
       >
       <a
+        routerLink="/about"
+        routerLinkActive="router-active"
+        class="hover:text-blue-600 transition headers"
+        >About us</a
+      >
+      <!-- <a
         routerLink="/get-started"
         class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition ml-4"
         >Get Started</a
-      >
+      > -->
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -366,14 +372,22 @@
               >Contact</a
             >
           </li>
-          <li class="mt-4">
+          <li>
+            <a
+              routerLink="/about"
+              routerLinkActive="router-active"
+              (click)="closeMobileMenu()"
+              >About us</a
+            >
+          </li>
+          <!-- <li class="mt-4">
             <a
               routerLink="/get-started"
               class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition block text-center"
               (click)="closeMobileMenu()"
               >Get Started</a
             >
-          </li>
+          </li> -->
         </ul>
       </nav>
     </div>

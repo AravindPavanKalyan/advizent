@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnDestroy, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2, Inject, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,9 @@ import { GalleriaModule } from 'primeng/galleria';
   standalone: true,
   imports: [CommonModule, RouterModule, GalleriaModule],
   templateUrl: './project-details.html',
-  styleUrls: ['./project-detail.scss',  '../projects.scss']
+  styleUrls: ['./project-detail.scss',  '../projects.scss'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class ProjectDetail implements OnInit, AfterViewInit, OnDestroy {
   project?: Project;

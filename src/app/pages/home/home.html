@@ -1,9 +1,8 @@
-
 <!-- Photo Carousel Section -->
 <app-photo-carousel></app-photo-carousel>
 
 <!-- Demo Card Carousel Section -->
-<section class="demo-carousel-section py-16 bg-gray-100">
+<section class="demo-carousel-section pt-16 bg-gray-100">
 	<div class="container mx-auto px-4">
 		<div class="max-w-6xl mx-auto text-center">
 			<div class="flex flex-col items-center mb-12">
@@ -12,18 +11,19 @@
 					Discover our comprehensive range of services through our interactive carousel.
 				</p>
 				<span class="service-title-underline mt-2 heading-underline"></span>
-			</div>
-			<app-card-carousel 
+			</div><a routerLink="/projects">
+				<app-card-carousel 
 				[cards]="carouselCards"
 				[autoplay]="true"
 				[autoplayDelay]="4000">
 			</app-card-carousel>
+			</a>
 		</div>
 	</div>
 </section>
 
 <!-- New Background Image Cards Services Section -->
-<section class="services-bg-cards-section py-16 bg-gray-50">
+<section class="services-bg-cards-section py-0 bg-gray-50" style="margin-top: -32px;">
     <div class="container mx-auto px-4">
         <app-bg-image-cards
             [cards]="servicesBgCards"

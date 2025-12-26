@@ -1,1 +1,105 @@
-<p>about works!</p>
+<section class="AboutUs-header">
+  <h1>About Us</h1>
+</section>
+<section class="aboutus-company-content">
+  <!-- Your existing about us content goes here -->
+   <div class="about-company">
+    <div class="sub-heading">About MaRS BIM Solutions</div>
+    <h2>A Leading CAD & BIM Services Company</h2>
+    <p>MaRS BIM Solutions is dedicated to delivering comprehensive solutions in CAD, BIM, and VDC that drive the construction industry forward. We have been working with government organizations, leading developers and corporate organizations in across the globe. Ever since we established our firm in the year 2004, we have extended our expertise to numerous areas, and this has in turn enabled us to collaborate with numerous clients.</p>
+    <p>With 20 years of experience in CAD and BIM Services, we have worked on more than 2500 diverse projects, including commercial, residential, and infrastructure developments. Our team is skilled in using industry-leading software and delivering models that meet the highest standards.</p>
+    <p>Our team is comprised of talented professionals, including Architects, Engineers, MEP Consultants, BIM Modelers, BIM Coordinators, 3D Artists, and CAD Drafters. Each member brings a wealth of expertise and dedication to their respective fields. With a deep understanding of design, construction, and coordination, our team works collaboratively to deliver solutions that meet the unique needs of every client. Their technical knowledge, combined with practical experience, allows us to consistently deliver high-quality results.</p>
+   </div>
+</section>
+<section class="what-we-offer">
+    <div class="what-we-offer-content">
+        <h2>What We Offer</h2>
+        <p>Our BIM services are designed to bring clarity, accuracy, and coordination to complex projects, reducing the potential for errors and enhancing collaboration between all stakeholders. By using advanced modeling techniques, we provide our clients with precise, data-rich models that improve decision-making and streamline the construction process from concept to completion.</p>
+        <p>We follow Global BIM Standards ensuring every project meets industry requirements. Our team has delivered models for projects in more than 10+ countries, all of which comply with local building codes and international regulations. This attention to standards helps our clients avoid issues during construction and ensures a smooth project delivery process.</p>
+        <p>Our BIM models go beyond visuals, offering clients useful data for cost estimation, material tracking, and facility management. We have provided 1000+ models with Level of Development (LOD) standards, ensuring models progress with the project stages. This method improves planning and reduces risks at each phase.</p>
+        <p>We have helped align project teams across 500+ projects, resolving clashes early through clash detection. This has minimized errors and delays, saving clients both time and money. Our focus on coordination has ensured that all project elements work together seamlessly.</p>
+        <p>We have implemented the latest technologies in Digital Twin and 4D/5D BIM across 200+ projects, allowing us to simulate construction steps and predict maintenance needs. This technology supports our clients during construction and adds value throughout the building’s life cycle.</p>
+        <div class="services-pills">
+            <a *ngFor="let service of services" [href]="service.route" class="">
+                <span class="pill">{{ service.name }}</span>
+            </a>
+        </div>
+        <button class="learn-more-btn caption-button" routerLink="/services">Explore All Services
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 18l6-6-6-6" />
+                </svg>
+        </button>
+    </div>
+</section>
+
+<section class="about-us-counts">
+    <div class="about-us-counts-container">
+        <div class="cards">
+            <div class="count">
+                <h3>500+</h3>
+            </div>
+            <div class="label">
+                <h4>Projects Completed</h4>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="count">
+                <h3>15+</h3>
+            </div>
+            <div class="label">
+                <h4>Years Experience</h4>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="count">
+                <h3>50+</h3>
+            </div>
+            <div class="label">
+                <h4>Expert Team</h4>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="count">
+                <h3>24/7</h3>
+            </div>
+            <div class="label">
+                <h4>Support</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Related projects carousel -->
+  <section class="related-projects-container" *ngIf="projects?.length">
+    <h3 class="related-title">Related Projects</h3>
+
+    <div
+      class="related-carousel"
+      #carousel
+      (mouseenter)="pauseCarousel()"
+      (mouseleave)="resumeCarousel()"
+      aria-roledescription="carousel"
+    >
+      <div class="carousel-track">
+        <div class="carousel-item" *ngFor="let p of projects; let i = index">
+          <a (click)="navigateToProject(p.id)" role="link" tabindex="0" class="carousel-link">
+            <img [src]="p.image" [alt]="p.title" />
+            <div class="title">{{ p.title }}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 24px;">
+            <button class="view-all-projects-btn caption-button" routerLink="/projects">View All Projects
+      <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 18l6-6-6-6" />
+          </svg>
+    </button>
+    </div>
+
+  </section>
+
+
+
